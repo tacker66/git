@@ -2091,11 +2091,17 @@ man:
 html:
 	$(MAKE) -C Documentation html
 
+relnoteshtml:
+	$(MAKE) -C Documentation relnoteshtml
+
 info:
 	$(MAKE) -C Documentation info
 
 pdf:
 	$(MAKE) -C Documentation pdf
+
+fullpdf:
+	$(MAKE) -C Documentation fullpdf
 
 XGETTEXT_FLAGS = \
 	--force-po \
@@ -2406,6 +2412,9 @@ install-info:
 
 install-pdf:
 	$(MAKE) -C Documentation install-pdf
+
+install-fullpdf:
+	$(MAKE) -C Documentation install-fullpdf
 
 quick-install-doc:
 	$(MAKE) -C Documentation quick-install
