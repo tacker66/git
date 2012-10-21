@@ -15,6 +15,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))
 
 DOC_HTML=$(MAN_HTML)
 
+RELNOTES_TXT = $(wildcard RelNotes/*.txt)
+RELNOTES_HTML= $(patsubst %.txt,%.html,$(RELNOTES_TXT))
+
 ARTICLES = howto-index
 ARTICLES += everyday
 ARTICLES += git-tools
@@ -178,6 +181,8 @@ all: html man
 
 html: $(DOC_HTML)
 
+relnoteshtml: $(RELNOTES_HTML)
+
 $(DOC_HTML) $(DOC_MAN1) $(DOC_MAN5) $(DOC_MAN7): asciidoc.conf
 
 man: man1 man5 man7
@@ -188,6 +193,9 @@ man7: $(DOC_MAN7)
 info: git.info gitman.info
 
 pdf: user-manual.pdf
+
+fullpdf: pdf relnoteshtml html
+	./makedocpdf.sh
 
 install: install-man
 
@@ -212,6 +220,10 @@ install-info: info
 install-pdf: pdf
 	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
 	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
+
+install-fullpdf: fullpdf install-pdf
+	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
+	$(INSTALL) -m 644 git-doc.pdf $(DESTDIR)$(pdfdir)
 
 install-html: html
 	'$(SHELL_PATH_SQ)' ./install-webdoc.sh $(DESTDIR)$(htmldir)
@@ -256,12 +268,17 @@ clean:
 	$(RM) technical/*.html technical/api-index.txt
 	$(RM) $(cmds_txt) *.made
 	$(RM) manpage-base-url.xsl
+	$(RM) docfiles.txt
+	$(RM) RelNotes/*.html
 
 $(MAN_HTML): %.html : %.txt
 	$(QUIET_ASCIIDOC)$(RM) $@+ $@ && \
 	$(ASCIIDOC) -b xhtml11 -d manpage -f asciidoc.conf \
 		$(ASCIIDOC_EXTRA) -agit_version=$(GIT_VERSION) -o $@+ $< && \
 	mv $@+ $@
+
+$(RELNOTES_HTML): %.html : %.txt
+	$(QUIET_ASCIIDOC)$(ASCIIDOC) $(ASCIIDOC_EXTRA) -b xhtml11 $*.txt
 
 manpage-base-url.xsl: manpage-base-url.xsl.in
 	sed "s|@@MAN_BASE_URL@@|$(MAN_BASE_URL)|" $< > $@
