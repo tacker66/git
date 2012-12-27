@@ -1,69 +1,75 @@
+Submitting Patches
+==================
+
 Checklist (and a short version for the impatient):
 
-	Commits:
+Commits:
+--------
 
-	- make commits of logical units
-	- check for unnecessary whitespace with "git diff --check"
-	  before committing
-	- do not check in commented out code or unneeded files
-	- the first line of the commit message should be a short
-	  description (50 characters is the soft limit, see DISCUSSION
-	  in git-commit(1)), and should skip the full stop
-	- it is also conventional in most cases to prefix the
-	  first line with "area: " where the area is a filename
-	  or identifier for the general area of the code being
-	  modified, e.g.
-	  . archive: ustar header checksum is computed unsigned
-	  . git-cherry-pick.txt: clarify the use of revision range notation
-	  (if in doubt which identifier to use, run "git log --no-merges"
-	  on the files you are modifying to see the current conventions)
-	- the body should provide a meaningful commit message, which:
-	  . explains the problem the change tries to solve, iow, what
-	    is wrong with the current code without the change.
-	  . justifies the way the change solves the problem, iow, why
-	    the result with the change is better.
-	  . alternate solutions considered but discarded, if any.
-	- describe changes in imperative mood, e.g. "make xyzzy do frotz"
-	  instead of "[This patch] makes xyzzy do frotz" or "[I] changed
-	  xyzzy to do frotz", as if you are giving orders to the codebase
-	  to change its behaviour.
-	- try to make sure your explanation can be understood without
-	  external resources. Instead of giving a URL to a mailing list
-	  archive, summarize the relevant points of the discussion.
-	- add a "Signed-off-by: Your Name <you@example.com>" line to the
-	  commit message (or just use the option "-s" when committing)
-	  to confirm that you agree to the Developer's Certificate of Origin
-	- make sure that you have tests for the bug you are fixing
-	- make sure that the test suite passes after your commit
+- make commits of logical units
+- check for unnecessary whitespace with "git diff --check"
+  before committing
+- do not check in commented out code or unneeded files
+- the first line of the commit message should be a short
+  description (50 characters is the soft limit, see DISCUSSION
+  in git-commit(1)), and should skip the full stop
+- it is also conventional in most cases to prefix the
+  first line with "area: " where the area is a filename
+  or identifier for the general area of the code being
+  modified, e.g.
+  * archive: ustar header checksum is computed unsigned
+  * git-cherry-pick.txt: clarify the use of revision range notation
+  (if in doubt which identifier to use, run "git log --no-merges"
+  on the files you are modifying to see the current conventions)
+- the body should provide a meaningful commit message, which:
+  * explains the problem the change tries to solve, iow, what
+	is wrong with the current code without the change.
+  * justifies the way the change solves the problem, iow, why
+	the result with the change is better.
+  * alternate solutions considered but discarded, if any.
+- describe changes in imperative mood, e.g. "make xyzzy do frotz"
+  instead of "[This patch] makes xyzzy do frotz" or "[I] changed
+  xyzzy to do frotz", as if you are giving orders to the codebase
+  to change its behaviour.
+- try to make sure your explanation can be understood without
+  external resources. Instead of giving a URL to a mailing list
+  archive, summarize the relevant points of the discussion.
+- add a `Signed-off-by: Your Name <you@example.com>` line to the
+  commit message (or just use the option "-s" when committing)
+  to confirm that you agree to the Developer's Certificate of Origin
+- make sure that you have tests for the bug you are fixing
+- make sure that the test suite passes after your commit
 
-	Patch:
+Patch:
+------
 
-	- use "git format-patch -M" to create the patch
-	- do not PGP sign your patch
-	- do not attach your patch, but read in the mail
-	  body, unless you cannot teach your mailer to
-	  leave the formatting of the patch alone.
-	- be careful doing cut & paste into your mailer, not to
-	  corrupt whitespaces.
-	- provide additional information (which is unsuitable for
-	  the commit message) between the "---" and the diffstat
-	- if you change, add, or remove a command line option or
-	  make some other user interface change, the associated
-	  documentation should be updated as well.
-	- if your name is not writable in ASCII, make sure that
-	  you send off a message in the correct encoding.
-	- send the patch to the list (git@vger.kernel.org) and the
-	  maintainer (gitster@pobox.com) if (and only if) the patch
-	  is ready for inclusion. If you use git-send-email(1),
-	  please test it first by sending email to yourself.
-	- see below for instructions specific to your mailer
+- use "git format-patch -M" to create the patch
+- do not PGP sign your patch
+- do not attach your patch, but read in the mail
+  body, unless you cannot teach your mailer to
+  leave the formatting of the patch alone.
+- be careful doing cut & paste into your mailer, not to
+  corrupt whitespaces.
+- provide additional information (which is unsuitable for
+  the commit message) between the "---" and the diffstat
+- if you change, add, or remove a command line option or
+  make some other user interface change, the associated
+  documentation should be updated as well.
+- if your name is not writable in ASCII, make sure that
+  you send off a message in the correct encoding.
+- send the patch to the list (git@vger.kernel.org) and the
+  maintainer (gitster@pobox.com) if (and only if) the patch
+  is ready for inclusion. If you use git-send-email(1),
+  please test it first by sending email to yourself.
+- see below for instructions specific to your mailer
 
 Long version:
+-------------
 
 I started reading over the SubmittingPatches document for Linux
 kernel, primarily because I wanted to have a document similar to
 it for the core GIT to make sure people understand what they are
-doing when they write "Signed-off-by" line.
+doing when they write `Signed-off-by` line.
 
 But the patch submission requirements are a lot more relaxed
 here on the technical/contents front, because the core GIT is
@@ -285,7 +291,7 @@ If you like, you can put extra tags at the end:
 You can also create your own tag or use one that's in common usage
 such as "Thanks-to:", "Based-on-patch-by:", or "Mentored-by:".
 
-------------------------------------------------
+..................................
 An ideal patch flow
 
 Here is an ideal patch flow for this project the current maintainer
@@ -319,8 +325,8 @@ In any time between the (2)-(3) cycle, the maintainer may pick it up
 from the list and queue it to 'pu', in order to make it easier for
 people play with it without having to pick up and apply the patch to
 their trees themselves.
+..................................
 
-------------------------------------------------
 Know the status of your patch after submission
 
 * You can use Git itself to find out when your patch is merged in
@@ -334,8 +340,8 @@ Know the status of your patch after submission
   entitled "What's cooking in git.git" and "What's in git.git" giving
   the status of various proposed changes.
 
-------------------------------------------------
 MUA specific hints
+~~~~~~~~~~~~~~~~~~
 
 Some of patches I receive or pick up from the list share common
 patterns of breakage.  Please make sure your MUA is set up
@@ -356,7 +362,7 @@ commit message.
 
 
 Pine
-----
+^^^^
 
 (Johannes Schindelin)
 
@@ -364,14 +370,14 @@ I don't know how many people still use pine, but for those poor
 souls it may be good to mention that the quell-flowed-text is
 needed for recent versions.
 
-... the "no-strip-whitespace-before-send" option, too. AFAIK it
+And the "no-strip-whitespace-before-send" option, too. AFAIK it
 was introduced in 4.60.
 
 (Linus Torvalds)
 
 And 4.58 needs at least this.
 
----
+...........................
 diff-tree 8326dd8350be64ac7fc805f6563a1d61ad10d32c (from e886a61f76edf5410573e92e38ce22974f9c40f1)
 Author: Linus Torvalds <torvalds@g5.osdl.org>
 Date:   Mon Aug 15 17:23:51 2005 -0700
@@ -380,6 +386,8 @@ Date:   Mon Aug 15 17:23:51 2005 -0700
 
     There's no excuse for unconditionally removing whitespace from
     the pico buffers on close.
+
+--------------------------------------
 
 diff --git a/pico/pico.c b/pico/pico.c
 --- a/pico/pico.c
@@ -393,12 +401,14 @@ diff --git a/pico/pico.c b/pico/pico.c
 +#endif
 		c |= COMP_EXIT;
 		break;
-
+...........................
 
 (Daniel Barkalow)
 
+...........................
 > A patch to SubmittingPatches, MUA specific help section for
 > users of Pine 4.63 would be very much appreciated.
+...........................
 
 Ah, it looks like a recent version changed the default behavior to do the
 right thing, and inverted the sense of the configuration option. (Either
@@ -409,12 +419,12 @@ it.
 
 
 Thunderbird, KMail, GMail
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 See the MUA-SPECIFIC HINTS section of git-format-patch(1).
 
 Gnus
-----
+^^^^
 
 '|' in the *Summary* buffer can be used to pipe the current
 message to an external program, and this is a handy way to drive
