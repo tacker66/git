@@ -47,6 +47,8 @@ TECH_DOCS += technical/racy-git
 TECH_DOCS += technical/send-pack-pipeline
 TECH_DOCS += technical/shallow
 TECH_DOCS += technical/trivial-merge
+TECH_DOCS += technical/coding-guidelines
+TECH_DOCS += technical/submitting-patches
 SP_ARTICLES += $(TECH_DOCS)
 SP_ARTICLES += technical/api-index
 
