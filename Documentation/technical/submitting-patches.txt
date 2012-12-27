@@ -1,3 +1,6 @@
+﻿Submitting Patches
+==================
+
 Here are some guidelines for people who want to contribute their code
 to this software.
 
@@ -327,7 +330,6 @@ from the list and queue it to 'pu', in order to make it easier for
 people play with it without having to pick up and apply the patch to
 their trees themselves.
 
-------------------------------------------------
 Know the status of your patch after submission
 
 * You can use Git itself to find out when your patch is merged in
@@ -341,8 +343,8 @@ Know the status of your patch after submission
   entitled "What's cooking in git.git" and "What's in git.git" giving
   the status of various proposed changes.
 
-------------------------------------------------
 MUA specific hints
+------------------
 
 Some of patches I receive or pick up from the list share common
 patterns of breakage.  Please make sure your MUA is set up
@@ -363,7 +365,7 @@ commit message.
 
 
 Pine
-----
+~~~~
 
 (Johannes Schindelin)
 
@@ -371,14 +373,14 @@ I don't know how many people still use pine, but for those poor
 souls it may be good to mention that the quell-flowed-text is
 needed for recent versions.
 
-... the "no-strip-whitespace-before-send" option, too. AFAIK it
+And the "no-strip-whitespace-before-send" option, too. AFAIK it
 was introduced in 4.60.
 
 (Linus Torvalds)
 
 And 4.58 needs at least this.
 
----
+...........................
 diff-tree 8326dd8350be64ac7fc805f6563a1d61ad10d32c (from e886a61f76edf5410573e92e38ce22974f9c40f1)
 Author: Linus Torvalds <torvalds@g5.osdl.org>
 Date:   Mon Aug 15 17:23:51 2005 -0700
@@ -400,12 +402,14 @@ diff --git a/pico/pico.c b/pico/pico.c
 +#endif
 		c |= COMP_EXIT;
 		break;
-
+...........................
 
 (Daniel Barkalow)
 
+...........................
 > A patch to SubmittingPatches, MUA specific help section for
 > users of Pine 4.63 would be very much appreciated.
+...........................
 
 Ah, it looks like a recent version changed the default behavior to do the
 right thing, and inverted the sense of the configuration option. (Either
@@ -416,12 +420,12 @@ it.
 
 
 Thunderbird, KMail, GMail
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See the MUA-SPECIFIC HINTS section of git-format-patch(1).
 
 Gnus
-----
+~~~~
 
 '|' in the *Summary* buffer can be used to pipe the current
 message to an external program, and this is a handy way to drive
