@@ -39,6 +39,8 @@ DOC_HTML=$(MAN_HTML) $(OBSOLETE_HTML)
 
 ARTICLES = howto-index
 ARTICLES += everyday
+ARTICLES += readme
+ARTICLES += install
 ARTICLES += git-tools
 ARTICLES += git-bisect-lk2009
 # with their own formatting rules.
