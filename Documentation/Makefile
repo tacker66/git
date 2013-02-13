@@ -64,6 +64,7 @@ SP_ARTICLES += $(API_DOCS)
 TECH_DOCS = technical/index-format
 TECH_DOCS += technical/pack-format
 TECH_DOCS += technical/pack-heuristics
+TECH_DOCS += technical/http-protocol
 TECH_DOCS += technical/pack-protocol
 TECH_DOCS += technical/protocol-capabilities
 TECH_DOCS += technical/protocol-common
