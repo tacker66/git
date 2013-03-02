@@ -1821,7 +1821,7 @@ CONFIGURE_RECIPE = $(RM) configure configure.ac+ && \
 		   autoconf -o configure configure.ac+ && \
 		   $(RM) configure.ac+
 
-configure: configure.ac GIT-VERSION-FILE
+configure: configure.ac
 	$(QUIET_GEN)$(CONFIGURE_RECIPE)
 
 ifdef AUTOCONFIGURED
