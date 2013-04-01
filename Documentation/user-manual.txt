@@ -216,7 +216,7 @@ of development leading to that point.
 
 The best way to see how this works is using the linkgit:gitk[1]
 command; running gitk now on a Git repository and looking for merge
-commits will help understand how the Git organizes history.
+commits will help understand how Git organizes history.
 
 In the following, we say that commit X is "reachable" from commit Y
 if commit X is an ancestor of commit Y.  Equivalently, you could say
@@ -777,7 +777,7 @@ e05db0fd4f31dde7005f075a84f96b360d05984b
 -------------------------------------------------
 
 Or you could recall that the `...` operator selects all commits
-contained reachable from either one reference or the other but not
+reachable from either one reference or the other but not
 both; so
 
 -------------------------------------------------
@@ -804,7 +804,7 @@ You could just visually inspect the commits since e05db0fd:
 $ gitk e05db0fd..
 -------------------------------------------------
 
-Or you can use linkgit:git-name-rev[1], which will give the commit a
+or you can use linkgit:git-name-rev[1], which will give the commit a
 name based on any tag it finds pointing to one of the commit's
 descendants:
 
@@ -3528,7 +3528,7 @@ with Git 1.5.2 can look up the submodule commits in the repository and
 manually check them out; earlier versions won't recognize the submodules at
 all.
 
-To see how submodule support works, create (for example) four example
+To see how submodule support works, create four example
 repositories that can be used later as a submodule:
 
 -------------------------------------------------
@@ -3900,7 +3900,7 @@ fact that such a commit brings together ("merges") two or more
 previous states represented by other commits.
 
 In other words, while a "tree" represents a particular directory state
-of a working directory, a "commit" represents that state in "time",
+of a working directory, a "commit" represents that state in time,
 and explains how we got there.
 
 You create a commit object by giving it the tree that describes the
