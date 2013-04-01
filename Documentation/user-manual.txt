@@ -3970,16 +3970,16 @@ Merging multiple trees
 
 Git helps you do a three-way merge, which you can expand to n-way by
 repeating the merge procedure arbitrary times until you finally
-"commit" the state.  The normal situation is that you'd only do one
+commit the state.  The normal situation is that you'd only do one
 three-way merge (two parents), and commit it, but if you like to, you
 can do multiple parents in one go.
 
-To do a three-way merge, you need the two sets of "commit" objects
+To do a three-way merge, you need the two commit objects
 that you want to merge, use those to find the closest common parent (a
-third "commit" object), and then use those commit objects to find the
-state of the directory ("tree" object) at these points.
+third commit object: the merge base), and then use those commit objects to find the
+state of the directory (i.e. tree object) at these points.
 
-To get the "base" for the merge, you first look up the common parent
+To get the base for the merge, you first look up the common parent
 of two commits with
 
 -------------------------------------------------
@@ -3987,8 +3987,8 @@ $ git merge-base <commit1> <commit2>
 -------------------------------------------------
 
 which will return you the commit they are both based on.  You should
-now look up the "tree" objects of those commits, which you can easily
-do with (for example)
+now look up the tree objects of those commits, which you can easily
+do with
 
 -------------------------------------------------
 $ git cat-file commit <commitname> | head -1
