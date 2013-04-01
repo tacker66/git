@@ -146,7 +146,7 @@ to point at the new commit.
 	created. Configured via the `.git/info/grafts` file.
 
 [[def_hash]]hash::
-	In Git's context, synonym to <<def_object_name,object name>>.
+	In Git's context, synonym for <<def_object_name,object name>>.
 
 [[def_head]]head::
 	A <<def_ref,named reference>> to the <<def_commit,commit>> at the tip of a
@@ -230,10 +230,9 @@ This commit is referred to as a "merge commit", or sometimes just a
 	Synonym for <<def_object_name,object name>>.
 
 [[def_object_name]]object name::
-	The unique identifier of an <<def_object,object>>. The <<def_hash,hash>>
-	of the object's contents using the Secure Hash Algorithm
-	1 and usually represented by the 40 character hexadecimal encoding of
-	the <<def_hash,hash>> of the object.
+	The unique identifier of an <<def_object,object>>: The <<def_SHA1,SHA1>> hash
+	of the object's contents. The object name is usually represented by the 
+	40 character hexadecimal encoding of the hash value.
 
 [[def_object_type]]object type::
 	One of the identifiers "<<def_commit_object,commit>>",
@@ -426,7 +425,8 @@ should not be combined with other pathspec.
 	Source code management (tool).
 
 [[def_SHA1]]SHA1::
-	Synonym for <<def_object_name,object name>>.
+	"Secure Hash Algorithm 1"; a cryptographic hash function. 
+	In the context of Git used as a synonym for <<def_object_name,object name>>.
 
 [[def_shallow_repository]]shallow repository::
 	A shallow <<def_repository,repository>> has an incomplete
