@@ -1237,10 +1237,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 -------------------------------------------------
 
 Conflict markers are left in the problematic files, and after
-you resolve the conflicts manually, you can update the index
-with the contents and run Git commit, as you normally would when
-creating a new file.
-
+you have resolved the conflicts manually, you can `git add` the
+new contents and do a `git commit` in the end.
 If you examine the resulting commit using gitk, you will see that it
 has two parents, one pointing to the top of the current branch, and
 one to the top of the other branch.
