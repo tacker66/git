@@ -2122,8 +2122,6 @@ He uses two public branches:
 
  - A "test" tree into which patches are initially placed so that they
    can get some exposure when integrated with other ongoing development.
-   This tree is available to Andrew for pulling into -mm whenever he
-   wants.
 
  - A "release" tree into which tested patches are moved for final sanity
    checking, and as a vehicle to send them upstream to Linus (by sending
