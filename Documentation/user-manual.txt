@@ -2225,7 +2225,7 @@ When you are happy with the state of this change, you can pull it into the
 "test" branch in preparation to make it public:
 
 -------------------------------------------------
-$ git checkout test && git pull . speed-up-spinlocks
+$ git checkout test && git merge speed-up-spinlocks
 -------------------------------------------------
 
 It is unlikely that you would have any conflicts here ... but you might if you
@@ -2237,7 +2237,7 @@ see the value of keeping each patch (or patch series) in its own branch.  It
 means that the patches can be moved into the `release` tree in any order.
 
 -------------------------------------------------
-$ git checkout release && git pull . speed-up-spinlocks
+$ git checkout release && git merge speed-up-spinlocks
 -------------------------------------------------
 
 After a while, you will have a number of branches, and despite the
