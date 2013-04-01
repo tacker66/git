@@ -1763,17 +1763,6 @@ repository that you pulled from.
 <<fast-forwards,fast-forward>>; instead, your branch will just be
 updated to point to the latest commit from the upstream branch.)
 
-The `git pull` command can also be given `.` as the "remote" repository,
-in which case it just merges in a branch from the current repository; so
-the commands
-
--------------------------------------------------
-$ git pull . branch
-$ git merge branch
--------------------------------------------------
-
-are roughly equivalent.  The former is actually very commonly used.
-
 [[submitting-patches]]
 Submitting patches to a project
 -------------------------------
