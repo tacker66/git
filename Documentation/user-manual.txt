@@ -4368,12 +4368,6 @@ $ git log --no-merges --diff-filter=A builtin-*.c
 You see, Git is actually the best tool to find out about the source of Git
 itself!
 
-[[glossary]]
-Git Glossary
-============
-
-include::glossary-content.txt[]
-
 [[git-quick-start]]
 Git Quick Reference
 ===================
@@ -4608,3 +4602,8 @@ Recompress, remove unused cruft:
 $ git gc
 -----------------------------------------------
 
+[[glossary]]
+Git Glossary
+============
+
+include::glossary-content.txt[]
