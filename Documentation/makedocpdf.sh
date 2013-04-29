@@ -1,5 +1,6 @@
 #!/bin/sh
 
+rm -f user-manual.pdf
 rm -f git-doc.pdf
 rm -f git-doc.html
 rm -f git-docs.html
@@ -56,6 +57,9 @@ cat footerend.txt                  >>footer.html
 
 echo "Creating user-manual.mobi ..."
 kindlegen -c2 user-manual.html -o user-manual.mobi
+
+echo "Creating user-manual.pdf ..."
+wkhtmltopdf --disable-external-links user-manual.html user-manual.pdf
 
 echo "Creating git-doc.html ..."
 cat docfiles.txt | xargs cat | cat >git-docs.html
