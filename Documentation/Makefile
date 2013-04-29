@@ -221,7 +221,7 @@ info: git.info gitman.info
 
 pdf: user-manual.pdf
 
-fullpdf: pdf relnoteshtml html
+fullpdf: relnoteshtml html
 	./makedocpdf.sh
 
 install: install-man
@@ -248,9 +248,10 @@ install-pdf: pdf
 	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
 	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
 
-install-fullpdf: fullpdf install-pdf
+install-fullpdf: fullpdf
 	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
 	$(INSTALL) -m 644 git-doc.pdf $(DESTDIR)$(pdfdir)
+	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
 
 install-html: html
 	'$(SHELL_PATH_SQ)' ./install-webdoc.sh $(DESTDIR)$(htmldir)
