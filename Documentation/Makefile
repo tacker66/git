@@ -237,7 +237,8 @@ info: git.info gitman.info
 
 pdf: user-manual.pdf
 
-fullpdf: relnoteshtml html
+#fullpdf: relnoteshtml html
+fullpdf: html
 	./makedocpdf.sh
 
 install: install-man

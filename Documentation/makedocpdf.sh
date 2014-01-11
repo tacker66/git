@@ -1,15 +1,21 @@
 #!/bin/sh
 
 rm -f user-manual.pdf
-rm -f git-doc.pdf
+rm -f user-manual.mobi
 rm -f git-doc.html
-rm -f git-docs.html
-rm -f docfiles.txt
+rm -f git-doc.pdf
+rm -f git-doc.mobi
+
 rm -f pagebreak.html
-rm -f footer.html
+rm -f docfiles.txt
+
+version=`cat ../GIT-VERSION-FILE`
 
 cat pagebreak.txt                  >pagebreak.html
 
+ls readme.html                     >docfiles.txt
+
+ls pagebreak.html                  >>docfiles.txt
 ls gittutorial.html                >>docfiles.txt
 ls gittutorial-2.html              >>docfiles.txt
 ls giteveryday.html                >>docfiles.txt
@@ -48,25 +54,19 @@ ls technical/[b-z]*.html           >>docfiles.txt
 ls pagebreak.html                  >>docfiles.txt
 ls install.html                    >>docfiles.txt
 
-ls pagebreak.html                  >>docfiles.txt
-ls RelNotes/*.html                 >>docfiles.txt
-
-cat footerstart.txt                >footer.html
-cat ../GIT-VERSION-FILE            >>footer.html
-cat footerend.txt                  >>footer.html
+echo "Creating user-manual.pdf ..."
+wkhtmltopdf --disable-external-links --footer-left "$version" --footer-right "[page]" --footer-line --footer-font-size 9 user-manual.html user-manual.pdf
 
 echo "Creating user-manual.mobi ..."
 kindlegen -c2 user-manual.html -o user-manual.mobi
 
-echo "Creating user-manual.pdf ..."
-wkhtmltopdf --disable-external-links user-manual.html user-manual.pdf
-
 echo "Creating git-doc.html ..."
-cat docfiles.txt | xargs cat | cat >git-docs.html
-cat readme.html git-docs.html >git-doc.html
+cat docfiles.txt | xargs cat | cat >git-doc.html
+
+echo "Creating git-doc.pdf ..."
+wkhtmltopdf --disable-external-links --footer-left "$version" --footer-right "[page]" --footer-line --footer-font-size 9 --zoom 1.6 git-doc.html git-doc.pdf
 
 echo "Creating git-doc.mobi ..."
 kindlegen -c2 git-doc.html -o git-doc.mobi
 
-echo "Creating git-doc.pdf ..."
-cat docfiles.txt | xargs cat | wkhtmltopdf --toc --cover readme.html --footer-html footer.html --disable-external-links - git-doc.pdf
+echo "Done."
