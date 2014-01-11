@@ -48,8 +48,8 @@ ls technical/[b-z]*.html           >>docfiles.txt
 ls pagebreak.html                  >>docfiles.txt
 ls install.html                    >>docfiles.txt
 
-ls pagebreak.html                  >>docfiles.txt
-ls RelNotes/*.html                 >>docfiles.txt
+#ls pagebreak.html                  >>docfiles.txt
+#ls RelNotes/*.html                 >>docfiles.txt
 
 cat footerstart.txt                >footer.html
 cat ../GIT-VERSION-FILE            >>footer.html
