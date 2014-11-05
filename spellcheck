@@ -1,0 +1,2 @@
+find . \( -name "*.asc" -o -name "*.txt" \) -print -exec aspell check -x --sug-mode=bad-spellers --lang=en '{}' \;
+
