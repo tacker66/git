@@ -12,7 +12,7 @@ cat pagebreak.txt                  >pagebreak.html
 
 ls gittutorial.html                >>docfiles.txt
 ls gittutorial-2.html              >>docfiles.txt
-ls everyday.html                   >>docfiles.txt
+ls giteveryday.html                >>docfiles.txt
 ls gitworkflows.html               >>docfiles.txt
 
 ls pagebreak.html                  >>docfiles.txt
